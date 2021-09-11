@@ -44,8 +44,8 @@ public class Personage : MonoBehaviour, IPersonageControl
 
     private void UpdateAnimator()
     {
-        _animator.SetFloat("Speed", Mathf.Abs(_rigidbody.velocity.x));
-        _animator.SetBool("Grounded", _isGrounded);
+        _animator.SetFloat(AnimationPersonageController.Parameters.Speed, Mathf.Abs(_rigidbody.velocity.x));
+        _animator.SetBool(AnimationPersonageController.Parameters.Grounded, _isGrounded);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -71,21 +71,21 @@ public class Personage : MonoBehaviour, IPersonageControl
         _isGrounded = false;
     }
 
-    void IPersonageControl.Left()
+    public void Left()
     {
         _rigidbody.velocity = new Vector2(-HorizontalSpeed, _rigidbody.velocity.y);
         _renderer.flipX = true;
         _isIdle = false;
     }
 
-    void IPersonageControl.Right()
+    public void Right()
     {
         _rigidbody.velocity = new Vector2(+HorizontalSpeed, _rigidbody.velocity.y);
         _renderer.flipX = false;
         _isIdle = false;
     }
 
-    void IPersonageControl.Jump()
+    public void Jump()
     {
         if (!_isGrounded)
             return;

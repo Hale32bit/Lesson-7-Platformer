@@ -11,7 +11,7 @@ public class CoinsSpawner : MonoBehaviour
 
     private Coroutine _spawnProcess;
    
-    void Start()
+    private void Start()
     {
         _spawnProcess = StartCoroutine(SpawnProcess());
     }

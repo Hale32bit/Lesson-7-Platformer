@@ -19,7 +19,7 @@ public class PatroolingAI : PersonageBehavior
         _currentAction = Personage.Right;
     }
 
-    void Update()
+    private void Update()
     {
         UpdateDistance();
         _currentAction?.Invoke();
